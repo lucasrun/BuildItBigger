@@ -22,7 +22,11 @@ public class DisplayLibrary extends AppCompatActivity {
         String joke = null;
 
         Intent intent = getIntent();
-        joke = intent.getStringExtra(JOKE);
+
+        // check suggested by reviewer
+        if (intent.hasExtra(JOKE)) {
+            joke = intent.getStringExtra(JOKE);
+        }
 
         if (joke != null) {
             tv.setText(joke);
